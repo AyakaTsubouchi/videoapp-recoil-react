@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { atom, useRecoilState, useSetRecoilState } from "recoil";
-import axios from "../axios";
-import requests from "../requests";
+import axios from "./axios";
+import requests from "./requests";
 import "./Banner.css"
 
 function Banner() {

@@ -1,19 +1,18 @@
-import React from "react";
-import { RecoilRoot } from "recoil";
-import "./App.css";
-import Row from "./Row/Row";
-import requests from "./requests";
-import Banner from "./Banner/Banner";
+import React from 'react';
+import MoviesList from './MoviesList'
+import MyList from './MyList'
+import Banner from './Banner'
+import Row from './Row'
+import requests from "./requests"
+import "./Home.css"
 
-import AddTodo from '../components/TODO/AddTodo'
-import Todos from "../components/TODO/Todos";
 
-function App() {
-  return (
-    <RecoilRoot>
-      <div className="app">
-        <Banner />
-        <Row
+const Home = () => {
+    return (
+        <div className="home">
+            {/* <MoviesList /> */}
+            <Banner />
+            <Row
           title="NETFLIX ORIGINALS"
           fetchUrl={requests.fetchNetflixOriginals}
           isLargeRow
@@ -25,12 +24,9 @@ function App() {
         <Row title="Horror Movies" fetchUrl={requests.fetchHorrorMovies} />
         <Row title="Romance Movies" fetchUrl={requests.fetchRomanceMovies} />
         <Row title="Documentaries" fetchUrl={requests.fetchDocumentaries} />
-      </div>
-      <Todos/>
-      <AddTodo/>
-      
-    </RecoilRoot>
-  );
-}
+            <MyList />
+        </div>
+    );
+};
 
-export default App;
+export default Home;
