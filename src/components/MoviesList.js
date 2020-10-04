@@ -26,7 +26,7 @@ const MoviesList = () => {
     }
     fetchData();
   }, []);
-  console.log(movies);
+
 
   return (
     <div>

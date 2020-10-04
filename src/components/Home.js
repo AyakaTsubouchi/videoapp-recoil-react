@@ -1,6 +1,5 @@
 import React from 'react';
-import MoviesList from './MoviesList'
-import MyList from './MyList'
+import {Link} from 'react-router-dom';
 import Banner from './Banner'
 import Row from './Row'
 import requests from "./requests"
@@ -10,7 +9,7 @@ import "./Home.css"
 const Home = () => {
     return (
         <div className="home">
-            {/* <MoviesList /> */}
+          
             <Banner />
             <Row
           title="NETFLIX ORIGINALS"
@@ -24,7 +23,8 @@ const Home = () => {
         <Row title="Horror Movies" fetchUrl={requests.fetchHorrorMovies} />
         <Row title="Romance Movies" fetchUrl={requests.fetchRomanceMovies} />
         <Row title="Documentaries" fetchUrl={requests.fetchDocumentaries} />
-            <MyList />
+         <Link to="/mypage">mypage</Link>
+            
         </div>
     );
 };

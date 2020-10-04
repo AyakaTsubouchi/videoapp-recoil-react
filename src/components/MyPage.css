@@ -1,0 +1,10 @@
+.my_page{
+    background-color: black;
+    color: white;
+   
+}
+
+.my_page > a {
+    color:white;
+    text-decoration: none;
+}

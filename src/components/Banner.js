@@ -4,8 +4,14 @@ import axios from "./axios";
 import requests from "./requests";
 import "./Banner.css"
 
+const myFavoriteMovieState = atom({
+  key: "myFavoriteMovieState",
+  default: [],
+});
+
 function Banner() {
   const [movie, setMovie] = useState([]);
+  const [myMovies, setMyMovies] = useRecoilState(myFavoriteMovieState);
 
 
   useEffect(() => {
@@ -21,7 +27,6 @@ function Banner() {
     }
     fetchData();
   }, []);
-  console.log("banner", movie);
   function truncateString(str, num) {
    
     return str?.length > num ? str.slice(0, num) + '...' : str
@@ -30,6 +35,10 @@ function Banner() {
   const addMyMovie = (title)=>{
     //set the title to global state with recoil
     //
+    setMyMovies([
+      ...myMovies,
+      { name: movie?.title || movie?.name || movie?.original_name },
+    ]);
     alert(`Added ${title} to my list`)
   }
   
@@ -46,7 +55,7 @@ function Banner() {
       <div className="banner_contents">
         <h1 className="banner_title">{movie?.title || movie?.name || movie?.original_name}</h1>
         <div className="banner_buttons">
-          <button className="banner_button" onClick={()=>addMyMovie(movie?.title  || movie?.name || movie?.original_name)}>Play</button>
+          <button className="banner_button" onClick={()=> alert("sorry, I can't play")}>Play</button>
           <button className="banner_button"  onClick={()=>addMyMovie(movie?.title  || movie?.name || movie?.original_name)}>My List</button>
         </div>
         <h1 className="banner_description">

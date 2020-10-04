@@ -28,7 +28,7 @@ const [myMovies, setMyMovies] = useRecoilState(myFavoriteMovieState);
     fetchData();
   }, [fetchUrl]);
 
-  console.log(movies);
+
   return (
     <div className="row">
       <h2>{title}</h2>
